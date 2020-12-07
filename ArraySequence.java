@@ -6,4 +6,24 @@ public class ArraySequence implements IntegerSequence{
   public ArraySequence(int [] other){
     data = other;
   }
+
+  public void reset(){
+    currentIndex = 0;
+  }
+
+  public int length(){
+    return data.length;
+  }
+
+  public boolean hasNext() {
+    return currentIndex !=  this.length();
+  }
+
+  public int next(){
+    if(!hasNext()) {
+      throw new NoSuchElementException("No Next Value");
+    }
+    currentIndex++;
+    return data[currentIndex - 1];
+  }
 }
