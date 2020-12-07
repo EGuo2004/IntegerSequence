@@ -7,6 +7,18 @@ public class ArraySequence implements IntegerSequence{
     data = other;
   }
 
+  public ArraySequence(IntegerSequence otherseq) {
+    reset();
+    otherseq.reset();
+    data = new int[otherseq.length()];
+    while(otherseq.hasNext()) {
+      data[currentIndex] = otherseq.next();
+      currentIndex++;
+    }
+    reset();
+    otherseq.reset();
+  }
+
   public void reset(){
     currentIndex = 0;
   }
